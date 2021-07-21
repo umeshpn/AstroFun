@@ -66,8 +66,8 @@ public class AstroFrame extends JFrame {
 
         solarSystem = new SolarSystem(new AstroCalendar());
 
-        graphicalView.setSolarSystem(solarSystem);
-        tableView.setSolarSystem(solarSystem);
+        if (graphicalView != null) graphicalView.setSolarSystem(solarSystem);
+        if (tableView != null) tableView.setSolarSystem(solarSystem);
         repaint();
     }
 
@@ -98,8 +98,8 @@ public class AstroFrame extends JFrame {
      **/
     public void setSolarSystem (SolarSystem ss) {
         solarSystem = ss;
-        graphicalView.setSolarSystem(ss);
-        tableView.setSolarSystem(ss);
+        if (graphicalView != null) graphicalView.setSolarSystem(ss);
+        if (tableView != null) tableView.setSolarSystem(ss);
     }
 
     /**
@@ -133,10 +133,15 @@ public class AstroFrame extends JFrame {
         } else {
             centerPlanet = solarSystem.getPlanet(centerPlanetId);
         }
-        graphicalView.setCenterPlanet(centerPlanet);
-        tableView.setCenterPlanet(centerPlanet);
-        graphicalView.repaint();
-        tableView.repaint();
+        if (graphicalView != null) {
+            graphicalView.setCenterPlanet(centerPlanet);
+            graphicalView.repaint();
+        }
+
+        if (tableView != null) {
+            tableView.setCenterPlanet(centerPlanet);
+            tableView.repaint();
+        }
     }
 
     /**

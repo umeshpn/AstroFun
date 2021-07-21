@@ -1,7 +1,6 @@
 package net.usvishakh.astrofun;
 
 import javax.swing.*;
-import java.awt.*;
 
 /**
  ** Abstract class to view a Solar system
